@@ -13,6 +13,11 @@ public class EnrollmentService {
     }
 
     public Enrollment enroll(Student student, int courseId) {
+        if (student == null) {
+            System.out.println("[LOG] Отказ: студент не передан");
+            throw new IllegalArgumentException("Student must not be null");
+        }
+
         System.out.println("[LOG] Попытка записи: студент " + student.getName()
                 + " (id=" + student.getId() + ") на курс id=" + courseId);
 

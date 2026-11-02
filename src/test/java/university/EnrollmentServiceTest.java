@@ -42,6 +42,19 @@ public class EnrollmentServiceTest {
     }
 
     @Test
+    public void testNullStudentForbidden() {
+        EnrollmentService service = new EnrollmentService(new InMemoryCourseRepository());
+
+        try {
+            service.enroll(null, 1);
+            fail("Ожидалась ошибка: студент не передан");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Student must not be null", e.getMessage());
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+    }
+
+    @Test
     public void testDuplicateEnrollmentForbidden() {
         CourseRepository repository = new InMemoryCourseRepository();
         EnrollmentService service = new EnrollmentService(repository);
