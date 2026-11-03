@@ -67,7 +67,7 @@ public class EnrollmentServiceTest {
             service.enroll(student, 1);
             fail("Ожидалась ошибка: студент уже записан на курс");
         } catch (IllegalStateException e) {
-            assertEquals("Student 1 is already enrolled in course 1", e.getMessage());
+            assertEquals("Студент 1 уже записан на этот курс", e.getMessage());
             System.out.println("Ошибка: " + e.getMessage());
         }
     }
