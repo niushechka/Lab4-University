@@ -21,9 +21,14 @@ public class Application {
 
         try {
             enrollmentService.enroll(student, 1);
-            System.out.println("ERROR: duplicate enrollment was allowed");
         } catch (IllegalStateException e) {
             System.out.println("Duplicate enrollment forbidden: " + e.getMessage());
+        }
+
+        try {
+            enrollmentService.enroll(student, 99);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Missing course handled: " + e.getMessage());
         }
     }
 }

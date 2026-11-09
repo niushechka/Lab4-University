@@ -14,6 +14,12 @@ pipeline {
             }
         }
 
+        stage('Static Analysis') {
+            steps {
+                bat 'chcp 65001 > nul && mvn checkstyle:check'
+            }
+        }
+
         stage('Test') {
             steps {
                 bat 'chcp 65001 > nul && mvn test'
