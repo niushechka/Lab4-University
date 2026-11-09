@@ -16,10 +16,15 @@ public class EnrollmentServiceTest {
     public void testSuccessfulEnrollment() {
         CourseRepository repository = new InMemoryCourseRepository();
         EnrollmentService service = new EnrollmentService(repository);
-        Student student = new Student(1, "Иван");
+        Student student = new Student(1, "Ivan");
         repository.save(new Course(1, "Algebra"));
 
         Enrollment enrollment = service.enroll(student, 1);
+        // WARN
+        // service.enroll(student, 1); 
+
+        // ERROR
+        //service.enroll(null, 1);
 
         assertNotNull(enrollment);
         assertEquals(1, enrollment.getStudentId());
@@ -30,7 +35,7 @@ public class EnrollmentServiceTest {
     @Test
     public void testCourseNotFound() {
         EnrollmentService service = new EnrollmentService(new InMemoryCourseRepository());
-        Student student = new Student(1, "Иван");
+        Student student = new Student(1, "Ivan");
 
         try {
             service.enroll(student, 99);
@@ -58,7 +63,7 @@ public class EnrollmentServiceTest {
     public void testDuplicateEnrollmentForbidden() {
         CourseRepository repository = new InMemoryCourseRepository();
         EnrollmentService service = new EnrollmentService(repository);
-        Student student = new Student(1, "Иван");
+        Student student = new Student(1, "Ivan");
         repository.save(new Course(1, "Algebra"));
 
         service.enroll(student, 1);

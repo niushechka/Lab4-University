@@ -19,7 +19,9 @@ public class Application {
         System.out.println("Enrolled: student " + enrollment.getStudentId()
                 + " -> course " + enrollment.getCourseId());
 
-        try {
+        // if (true) System.out.println(2);
+
+        try { // удаляешь 23 строчку и показываешь что работает
             enrollmentService.enroll(student, 1);
         } catch (IllegalStateException e) {
             System.out.println("Duplicate enrollment forbidden: " + e.getMessage());
