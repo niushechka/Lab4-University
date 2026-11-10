@@ -19,12 +19,10 @@
         <module name="RightCurly"/>
         <module name="MethodName"/>
         <module name="ParameterName"/>
-        <module name="LocalFinalVariableName"/>
         <module name="LocalVariableName"/>
         <module name="MemberName"/>
         <module name="TypeName"/>
         <module name="AvoidStarImport"/>
         <module name="UnusedImports"/>
-        <module name="UpperEll"/>
     </module>
 </module>

@@ -24,7 +24,7 @@ public class EnrollmentServiceTest {
         // service.enroll(student, 1); 
 
         // ERROR
-        //service.enroll(null, 1);
+        // service.enroll(null, 1);
 
         assertNotNull(enrollment);
         assertEquals(1, enrollment.getStudentId());
