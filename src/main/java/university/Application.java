@@ -19,7 +19,7 @@ public class Application {
         System.out.println("Enrolled: student " + enrollment.getStudentId()
                 + " -> course " + enrollment.getCourseId());
 
-        if (true) System.out.println(2);
+        //if (true) System.out.println(2);
 
         try { 
             enrollmentService.enroll(student, 1);
